@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica Matemática</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1><i class="fas fa-brain"></i> Lógica Matemática</h1>
+        <p>A linguagem da razão ao seu alcance</p>
+    </header>
+
+    <!-- Barra de Estatísticas -->
+    <section class="stats-bar">
+      <div class="stat">
+        <i class="fas fa-brain"></i>
+        <span id="total-lessons">6 Aulas</span>
+      </div>
+      <div class="stat">
+        <i class="fas fa-tasks"></i>
+        <span id="total-exercises">24 Exercícios</span>
+      </div>
+      <div class="stat">
+        <i class="fas fa-star"></i>
+        <span id="average-score">85% Acertos</span>
+      </div>
+    </section>
+
+    <!-- Navegação entre abas -->
+    <nav class="tab-container">
+        <button class="tab-button active" onclick="openMainTab('aulas')" aria-label="Aulas"><i class="fas fa-graduation-cap"></i> Aulas</button>
+        <button class="tab-button" onclick="openMainTab('exercicios')" aria-label="Exercícios"><i class="fas fa-pencil-alt"></i> Exercícios</button>
+        <button class="tab-button" onclick="openMainTab('tabelas')" aria-label="Tabelas"><i class="fas fa-table"></i> Tabelas</button>
+        <button class="tab-button" onclick="openMainTab('competitivo')" aria-label="Modo Competitivo"><i class="fas fa-trophy"></i> Competitivo</button>
+        <button class="tab-button" onclick="openMainTab('conquistas')" aria-label="Conquistas"><i class="fas fa-medal"></i> Conquistas</button>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Aulas Interativas -->
+        <div id="aulas" class="tab-content active">
+            <h2 id="lesson-title"></h2>
+            <div id="lesson-content"></div>
+            <button id="prev-lesson" onclick="prevLesson()" aria-label="Aula Anterior">← Anterior</button>
+            <button id="next-lesson" onclick="nextLesson()" aria-label="Próxima Aula">Próximo →</button>
+        </div>
+
+        <!-- Exercícios Práticos -->
+        <div id="exercicios" class="tab-content" style="display:none;">
+            <div class="card">
+                <h2><i class="fas fa-puzzle-piece"></i> Exercícios Práticos</h2>
+                <div class="exercise-controls">
+                    <button onclick="loadExercises('all')" aria-label="Todos os Exercícios">Todos</button>
+                    <button onclick="loadExercises('negacao')" aria-label="Exercícios de Negação">Negação</button>
+                    <button onclick="loadExercises('conjuncao')" aria-label="Exercícios de Conjunção">Conjunção</button>
+                    <button onclick="loadExercises('disjuncao')" aria-label="Exercícios de Disjunção">Disjunção</button>
+                    <button onclick="loadExercises('implicacao')" aria-label="Exercícios de Implicação">Implicação</button>
+                    <button onclick="loadExercises('bicondicional')" aria-label="Exercícios de Bicondicional">Bicondicional</button>
+                </div>
+                <div id="exercise-container"></div>
+                <div class="score-board">
+                    <span>Pontuação: <span id="exercise-score">0</span></span>
+                    <span>Acertos: <span id="correct-answers">0</span>/<span id="total-questions">0</span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gerador de Tabelas-Verdade -->
+        <div id="tabelas" class="tab-content" style="display:none;">
+            <div class="card">
+                <h2><i class="fas fa-calculator"></i> Gerador de Tabelas-Verdade</h2>
+                <div class="input-group">
+                    <input type="text" id="formula" placeholder="Ex: (p ∧ q) ∨ ¬r" aria-label="Fórmula Lógica">
+                    <button onclick="gerarTabela()" aria-label="Gerar Tabela-Verdade"><i class="fas fa-sync"></i> Gerar</button>
+                </div>
+                <div id="resultado" class="table-container"></div>
+            </div>
+        </div>
+
+        <!-- Modo Competitivo -->
+        <div id="competitivo" class="tab-content" style="display:none;">
+            <div class="card">
+                <h2><i class="fas fa-gamepad"></i> Modo Competitivo</h2>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" onclick="startCompetitiveMode('easy')" aria-label="Dificuldade Fácil">Fácil</button>
+                    <button class="difficulty-btn" onclick="startCompetitiveMode('medium')" aria-label="Dificuldade Média">Médio</button>
+                    <button class="difficulty-btn" onclick="startCompetitiveMode('hard')" aria-label="Dificuldade Difícil">Difícil</button>
+                </div>
+                <div id="competitive-chat" class="chat-area"></div>
+                <div id="competitive-feedback" class="feedback"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatMessage" placeholder="Digite sua resposta..." aria-label="Resposta do Usuário">
+                    <button id="send-answer" aria-label="Enviar Resposta"><i class="fas fa-paper-plane"></i> Enviar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conquistas -->
+        <div id="conquistas" class="tab-content" style="display:none;">
+            <h2><i class="fas fa-medal"></i> Conquistas</h2>
+            <div id="achievements-container"></div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Lógica Matemática - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
