@@ -7,11 +7,59 @@ const lessons = [
       <p>A lógica é uma disciplina que estuda os princípios do raciocínio válido. Ela permite a análise de argumentos, a identificação de falácias e a construção de raciocínios sólidos.</p>
       <p>Na matemática, na ciência e na filosofia, a lógica é fundamental para estruturar provas e teorias de forma coerente e consistente.</p>
       <p>Além disso, a lógica encontra aplicações em áreas como computação, linguística e inteligência artificial, sendo indispensável para a resolução de problemas complexos.</p>
-      <p><em>Nesta aula, exploraremos os conceitos básicos que formam a base da lógica formal.</em></p>
+      <p>Nesta aula, exploraremos os conceitos básicos que formam a base da lógica formal.</p>
     `
   },
   {
-    title: "Aula 2: Negação (¬)",
+    title: "Aula 2: Princípio da Identidade",
+    content: `
+      <p><strong>Definição:</strong> Toda proposição é igual a si mesma (P → P).</p>
+      <p><strong>Exemplo:</strong> 
+        "Se hoje é terça-feira, então hoje é terça-feira" | 
+        "A Lua é um satélite natural ↔ A Lua é um satélite natural"
+      </p>
+      <table border="1">
+        <tr><th>p</th><th>p → p</th></tr>
+        <tr><td>V</td><td>V</td></tr>
+        <tr><td>F</td><td>V</td></tr>
+      </table>
+      <p>Base para definições matemáticas e tautologias.</p>
+    `
+  },
+  {
+    title: "Aula 3: Princípio da Não Contradição",
+    content: `
+      <p><strong>Definição:</strong> Nenhuma proposição pode ser verdadeira e falsa simultaneamente (¬(P ∧ ¬P)).</p>
+      <p><strong>Exemplo:</strong> 
+        "Estou dormindo e acordado" (Contradição) | 
+        "Este círculo é quadrado" (Impossibilidade lógica)
+      </p>
+      <table border="1">
+        <tr><th>p</th><th>¬p</th><th>p ∧ ¬p</th><th>¬(p ∧ ¬p)</th></tr>
+        <tr><td>V</td><td>F</td><td>F</td><td>V</td></tr>
+        <tr><td>F</td><td>V</td><td>F</td><td>V</td></tr>
+      </table>
+      <p>Fundamental para evitar inconsistências em argumentos.</p>
+    `
+  },
+  {
+    title: "Aula 4: Princípio do Terceiro Excluído",
+    content: `
+      <p><strong>Definição:</strong> Toda proposição deve ser verdadeira ou falsa (P ∨ ¬P).</p>
+      <p><strong>Exemplo:</strong> 
+        "Ou está chovendo ou não está" | 
+        "Número é par ou não é par"
+      </p>
+      <table border="1">
+        <tr><th>p</th><th>¬p</th><th>p ∨ ¬p</th></tr>
+        <tr><td>V</td><td>F</td><td>V</td></tr>
+        <tr><td>F</td><td>V</td><td>V</td></tr>
+      </table>
+      <p>Garante a completude dos sistemas lógicos.</p>
+    `
+  },
+  {
+    title: "Aula 5: Negação (¬)",
     content: `
       <p><strong>Definição:</strong> A negação inverte o valor lógico de uma proposição. Se uma proposição é verdadeira, sua negação é falsa, e vice-versa.</p>
       <p><strong>Exemplo:</strong> Se p representa "Está chovendo", então ¬p representa "Não está chovendo".</p>
@@ -24,7 +72,7 @@ const lessons = [
     `
   },
   {
-    title: "Aula 3: Conjunção (∧)",
+    title: "Aula 6: Conjunção (∧)",
     content: `
       <p><strong>Definição:</strong> A conjunção é o operador que representa o "E" lógico. Uma expressão com conjunção é verdadeira somente se ambas as proposições forem verdadeiras.</p>
       <p><strong>Exemplo:</strong> Para p: "Está chovendo" e q: "Faz frio", a proposição p ∧ q é verdadeira apenas se ambas as condições forem verdadeiras.</p>
@@ -40,7 +88,7 @@ const lessons = [
     `
   },
   {
-    title: "Aula 4: Disjunção (∨)",
+    title: "Aula 7: Disjunção (∨)",
     content: `
       <p><strong>Definição:</strong> A disjunção representa o "OU" lógico. Uma expressão com disjunção é verdadeira se pelo menos uma das proposições for verdadeira.</p>
       <p><strong>Exemplo:</strong> Se p representa "Está chovendo" e q representa "Faz frio", então p ∨ q é verdadeira se uma (ou ambas) as condições forem verdadeiras.</p>
@@ -56,7 +104,7 @@ const lessons = [
     `
   },
   {
-    title: "Aula 5: Implicação (→)",
+    title: "Aula 8: Implicação (→)",
     content: `
       <p><strong>Definição:</strong> A implicação expressa a ideia de "se... então". Ela é falsa somente quando a primeira proposição é verdadeira e a segunda é falsa.</p>
       <p><strong>Exemplo:</strong> Se p: "Está chovendo" e q: "O solo está molhado", então p → q é falsa somente se estiver chovendo e o solo não estiver molhado.</p>
@@ -72,7 +120,7 @@ const lessons = [
     `
   },
   {
-    title: "Aula 6: Bicondicional (↔)",
+    title: "Aula 9: Bicondicional (↔)",
     content: `
       <p><strong>Definição:</strong> O bicondicional expressa "se e somente se". Ele é verdadeiro quando ambas as proposições possuem o mesmo valor lógico.</p>
       <p><strong>Exemplo:</strong> Se p e q representam duas condições, p ↔ q é verdadeira quando ambas são verdadeiras ou ambas são falsas.</p>
@@ -88,7 +136,7 @@ const lessons = [
     `
   },
   {
-    title: "Aula 7: Leis de De Morgan",
+    title: "Aula 10: Leis de Morgan",
     content: `
       <p><strong>Definição:</strong> As Leis de De Morgan fornecem regras para a negação de expressões compostas, transformando a negação de uma conjunção em uma disjunção de negações, e vice-versa.</p>
       <p><strong>Exemplos:</strong></p>
@@ -100,7 +148,7 @@ const lessons = [
     `
   },
   {
-    title: "Aula 8: Simplificação de Expressões Lógicas",
+    title: "Aula 11: Simplificação de Expressões Lógicas",
     content: `
       <p><strong>Definição:</strong> A simplificação de expressões lógicas envolve a aplicação de leis e equivalências lógicas para reduzir expressões a formas mais simples.</p>
       <p><strong>Exemplo:</strong> Simplificar a expressão (p ∧ q) ∨ (p ∧ ¬q) para apenas p, utilizando a propriedade distributiva.</p>
@@ -134,7 +182,8 @@ function openMainTab(tabName) {
 
 // Atualiza os botões de navegação da lição
 function updateNavigationButtons() {
-  document.getElementById('prev-lesson').disabled = currentLesson === -1;
+  // Correção nas condições de desabilitar botões
+  document.getElementById('prev-lesson').disabled = currentLesson === 1;
   document.getElementById('next-lesson').disabled = currentLesson === lessons.length;
   document.getElementById('current-lesson').textContent = currentLesson;
 }
@@ -156,6 +205,8 @@ function nextLesson() {
   if (currentLesson < lessons.length) {
     currentLesson++;
     loadLesson();
+    updateAchievementProgress('lessons');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
     alert("Você chegou ao fim das aulas.");
   }
@@ -165,6 +216,7 @@ function prevLesson() {
   if (currentLesson > 1) {
     currentLesson--;
     loadLesson();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
 
@@ -371,6 +423,16 @@ function checkAnswer(exerciseIndex, selectedButton) {
     feedback.innerHTML = '✗ Resposta Incorreta';
     feedback.style.color = 'red';
   }
+
+  if (selectedOption === exercise.answer) {
+    updateAchievementProgress('exercises');
+    achievements.perfectionist.current++;
+    if(achievements.perfectionist.current >= achievements.perfectionist.target) {
+      unlockAchievement(achievements.perfectionist);
+    }
+  } else {
+    achievements.perfectionist.current = 0;
+  }
 }
 
 function showHint(index) {
@@ -574,30 +636,128 @@ function updateScore(points) {
   scoreElement.textContent = score;
 }
 
+// script.js
 const achievements = {
-  beginner: {
-    name: "Iniciante Lógico",
-    condition: (score) => score > 50,
-    unlocked: false
+  firstSteps: {
+    name: "Primeiros Passos",
+    description: "Complete sua primeira aula",
+    icon: "fa-graduation-cap",
+    target: 1,
+    current: 0,
+    unlocked: false,
+    type: "lessons"
   },
-  master: {
-    name: "Mestre das Tabelas-Verdade",
-    condition: (exercises) => exercises > 20,
-    unlocked: false
+  practiceMaster: {
+    name: "Mestre da Prática",
+    description: "Resolva 20 exercícios",
+    icon: "fa-pencil-alt",
+    target: 20,
+    current: 0,
+    unlocked: false,
+    type: "exercises"
+  },
+  truthTableExpert: {
+    name: "Expert em Tabelas",
+    description: "Gere 10 tabelas-verdade",
+    icon: "fa-table",
+    target: 10,
+    current: 0,
+    unlocked: false,
+    type: "tables"
+  },
+  speedRunner: {
+    name: "Velocista Lógico",
+    description: "Complete 5 perguntas no modo competitivo em menos de 1 minuto",
+    icon: "fa-stopwatch",
+    target: 5,
+    current: 0,
+    unlocked: false,
+    type: "speed"
+  },
+  perfectionist: {
+    name: "Perfeccionista",
+    description: "Acertar 10 questões seguidas sem erros",
+    icon: "fa-star",
+    target: 10,
+    current: 0,
+    unlocked: false,
+    type: "streak"
   }
 };
 
-function checkAchievements() {
-  for (const [key, achievement] of Object.entries(achievements)) {
-    if (!achievement.unlocked && achievement.condition()) {
-      showAchievement(achievement.name);
-      achievement.unlocked = true;
+// Função para atualizar o progresso
+function updateAchievementProgress(type, amount = 1) {
+  Object.values(achievements).forEach(achievement => {
+    if (achievement.type === type && !achievement.unlocked) {
+      achievement.current += amount;
+      if (achievement.current >= achievement.target) {
+        unlockAchievement(achievement);
+      }
+      saveAchievements();
+      renderAchievements();
     }
-  }
+  });
 }
 
-function showAchievement(text) {
-  const modal = document.getElementById('achievement-modal');
-  modal.querySelector('#achievement-text').textContent = text;
-  modal.showModal();
+// Função para desbloquear conquista
+function unlockAchievement(achievement) {
+  achievement.unlocked = true;
+  showAchievementPopup(achievement);
+  saveAchievements();
 }
+
+// Função para exibir popup
+function showAchievementPopup(achievement) {
+  const popup = document.getElementById('achievement-popup');
+  const content = `
+    <div class="achievement-header">
+      <i class="fas ${achievement.icon} achievement-icon"></i>
+      <h3>Conquista Desbloqueada!</h3>
+    </div>
+    <div class="achievement-body">
+      <h4>${achievement.name}</h4>
+      <p>${achievement.description}</p>
+    </div>
+  `;
+  
+  popup.querySelector('.achievement-popup-content').innerHTML = content;
+  popup.style.display = 'block';
+  
+  setTimeout(() => {
+    popup.style.display = 'none';
+  }, 5000);
+}
+
+// Função para renderizar conquistas
+function renderAchievements() {
+  const container = document.getElementById('achievements-container');
+  container.innerHTML = Object.values(achievements).map(ach => `
+    <div class="achievement-card ${ach.unlocked ? 'unlocked' : 'locked'}">
+      ${ach.unlocked ? '<div class="achievement-badge"><i class="fas fa-unlock"></i></div>' : ''}
+      <i class="fas ${ach.icon} achievement-icon"></i>
+      <h3>${ach.name}</h3>
+      <p>${ach.description}</p>
+      <div class="achievement-progress">
+        <div class="achievement-progress-bar" style="width: ${(ach.current/ach.target)*100}%"></div>
+      </div>
+      <small>Progresso: ${ach.current}/${ach.target}</small>
+    </div>
+  `).join('');
+}
+
+// Função para salvar no localStorage
+function saveAchievements() {
+  localStorage.setItem('achievements', JSON.stringify(achievements));
+}
+
+// Carregar conquistas ao iniciar
+function loadAchievements() {
+  const saved = localStorage.getItem('achievements');
+  if (saved) {
+    Object.assign(achievements, JSON.parse(saved));
+  }
+  renderAchievements();
+}
+
+// Inicializar
+loadAchievements();

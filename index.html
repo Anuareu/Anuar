@@ -14,22 +14,6 @@
         <p>A linguagem da razão ao seu alcance</p>
     </header>
 
-    <!-- Barra de Estatísticas -->
-    <section class="stats-bar">
-      <div class="stat">
-        <i class="fas fa-brain"></i>
-        <span id="total-lessons">6 Aulas</span>
-      </div>
-      <div class="stat">
-        <i class="fas fa-tasks"></i>
-        <span id="total-exercises">24 Exercícios</span>
-      </div>
-      <div class="stat">
-        <i class="fas fa-star"></i>
-        <span id="average-score">85% Acertos</span>
-      </div>
-    </section>
-
     <!-- Navegação entre abas -->
     <nav class="tab-container">
         <button class="tab-button active" onclick="openMainTab('aulas')" aria-label="Aulas"><i class="fas fa-graduation-cap"></i> Aulas</button>
@@ -43,11 +27,14 @@
     <main>
         <!-- Aulas Interativas -->
         <div id="aulas" class="tab-content active">
-            <h2 id="lesson-title"></h2>
-            <div id="lesson-content"></div>
-            <button id="prev-lesson" onclick="prevLesson()" aria-label="Aula Anterior">← Anterior</button>
-            <button id="next-lesson" onclick="nextLesson()" aria-label="Próxima Aula">Próximo →</button>
-        </div>
+    <h2 id="lesson-title"></h2>
+    <div id="lesson-content"></div>
+    <div class="lesson-nav">
+        <button id="prev-lesson" onclick="prevLesson()" aria-label="Aula Anterior">← Anterior</button>
+        <span id="current-lesson">1</span>/<span id="total-lessons">11</span>
+        <button id="next-lesson" onclick="nextLesson()" aria-label="Próxima Aula">Próximo →</button>
+    </div>
+</div>
 
         <!-- Exercícios Práticos -->
         <div id="exercicios" class="tab-content" style="display:none;">
@@ -100,10 +87,19 @@
         </div>
 
         <!-- Conquistas -->
-        <div id="conquistas" class="tab-content" style="display:none;">
-            <h2><i class="fas fa-medal"></i> Conquistas</h2>
-            <div id="achievements-container"></div>
-        </div>
+<div id="conquistas" class="tab-content" style="display:none;">
+    <div class="card">
+      <h2><i class="fas fa-medal"></i> Conquistas</h2>
+      <p class="subtitle">Complete desafios para desbloquear recompensas!</p>
+      <div class="achievement-grid" id="achievements-container">
+        <!-- As conquistas serão inseridas aqui via JavaScript -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="achievement-popup" id="achievement-popup">
+    <div class="achievement-popup-content"></div>
+  </div>
     </main>
 
     <!-- Rodapé -->
